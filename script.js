@@ -6,44 +6,35 @@ function computerPlay() {
   return randomSelection;
 }
 
-//Player inputs Rock, Paper, or Scissors. Make case insensitive.
-function playerPlay() {
-  const playerChoice = prompt("Choose Rock, Paper, or Scissors:");
-  return capitalize (playerChoice);
-}
-function capitalize (string1) {
-  let pullFirst = string1.substr(0,1);
-  let pullRest = string1.slice(1);
-  let upperFirst = pullFirst.toUpperCase();
-  let lowerRest = pullRest.toLowerCase();
-  return upperFirst + lowerRest;
-}
-
 //Play round. Output win or lose statement.
 function playRound(playerSelection, computerSelection) {
-  if (playerSelection == 'Rock' && computerSelection == '1') {
+  if (playerSelection.toLowerCase() == 'rock' && computerSelection == '1') {
     return 'You Lose! Paper Beats Rock';
-  } else if (playerSelection == 'Paper' && computerSelection == '0') {
+  } else if (playerSelection.toLowerCase() == 'paper' && computerSelection == '0') {
     return 'You Win! Paper Beats Rock';
-  } else if (playerSelection == 'Rock' && computerSelection == '2') {
+  } else if (playerSelection.toLowerCase() == 'rock' && computerSelection == '2') {
     return 'You Win! Rock Beats Scissors';
-  } else if (playerSelection == 'Scissors' && computerSelection == '0') {
+  } else if (playerSelection.toLowerCase() == 'scissors' && computerSelection == '0') {
     return 'You Lose! Rock Beats Scissors';
-  } else if (playerSelection == 'Paper' && computerSelection == '2') {
+  } else if (playerSelection.toLowerCase() == 'paper' && computerSelection == '2') {
     return 'You Lose! Scissors Beats Paper';
-  } else if (playerSelection == 'Scissors' && computerSelection == '1') {
+  } else if (playerSelection.toLowerCase() == 'scissors' && computerSelection == '1') {
     return 'You Win! Scissors Beats Paper';
   } else {
     return 'It\'s a draw!';
   }
 }
 
-const playerSelection = playerPlay();
+const playerSelection = "RoCk";
 const computerSelection = computerPlay();
+console.log(playRound(playerSelection, computerSelection));
 
 //Play round five times.
 function game() {
-  for (i = 0, i < 5, i++) {
-    console.log(playRound(playerSelection, computerSelection));;
+  for (i = 0; i < 5; i++) {
+    const playerSelection = prompt("Choose Rock, Paper, or Scissors:");
+    const computerSelection = computerPlay();
+    computerPlay();
+    console.log(playRound(playerSelection, computerSelection));
   }
 }
