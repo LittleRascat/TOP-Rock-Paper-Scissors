@@ -20,4 +20,30 @@ function capitalize (string1) {
 }
 
 //Play round. Output win or lose statement.
+function playRound(playerSelection, computerSelection) {
+  if (playerSelection == 'Rock' && computerSelection == '1') {
+    return 'You Lose! Paper Beats Rock';
+  } else if (playerSelection == 'Paper' && computerSelection == '0') {
+    return 'You Win! Paper Beats Rock';
+  } else if (playerSelection == 'Rock' && computerSelection == '2') {
+    return 'You Win! Rock Beats Scissors';
+  } else if (playerSelection == 'Scissors' && computerSelection == '0') {
+    return 'You Lose! Rock Beats Scissors';
+  } else if (playerSelection == 'Paper' && computerSelection == '2') {
+    return 'You Lose! Scissors Beats Paper';
+  } else if (playerSelection == 'Scissors' && computerSelection == '1') {
+    return 'You Win! Scissors Beats Paper';
+  } else {
+    return 'It\'s a draw!';
+  }
+}
+
+const playerSelection = playerPlay();
+const computerSelection = computerPlay();
+
 //Play round five times.
+function game() {
+  for (i = 0, i < 5, i++) {
+    console.log(playRound(playerSelection, computerSelection));;
+  }
+}
