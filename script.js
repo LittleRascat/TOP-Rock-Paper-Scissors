@@ -8,23 +8,23 @@ function computerPlay() {
 
 //Play round. Output win or lose statement.
 function playRound(playerSelection, computerSelection) {
-  if (playerSelection.toLowerCase() === 'rock' && computerSelection === 1) {
-    let winLose = 'Lose';
-    return 'You ' + winLose + '! Paper Beats Rock';
-  } else if (playerSelection.toLowerCase() === 'paper' && computerSelection === 0) {
+  if (playerSelection.toLowerCase() === 'paper' && computerSelection === 0) {
     let winLose = 'Win';
+    return 'You ' + winLose + '! Paper Beats Rock';
+  } else if (playerSelection.toLowerCase() === 'scissors' && computerSelection === 0) {
+    let winLose = 'Lose';
+    return 'You ' + winLose + '! Rock Beats Scissors';
+  } else if (playerSelection.toLowerCase() === 'scissors' && computerSelection === 1) {
+    let winLose = 'Win';
+    return 'You ' + winLose + '! Scissors Beats Paper';
+  } else if (playerSelection.toLowerCase() === 'rock' && computerSelection === 1) {
+    let winLose = 'Lose';
     return 'You ' + winLose + '! Paper Beats Rock';
   } else if (playerSelection.toLowerCase() === 'rock' && computerSelection === 2) {
     let winLose = 'Win';
     return 'You ' + winLose + '! Rock Beats Scissors';
-  } else if (playerSelection.toLowerCase() === 'scissors' && computerSelection === 0) {
-    let winLose = 'Lose';
-    return 'You ' + winLose + '! Rock Beats Scissors';
   } else if (playerSelection.toLowerCase() === 'paper' && computerSelection === 2) {
     let winLose = 'Lose';
-    return 'You ' + winLose + '! Scissors Beats Paper';
-  } else if (playerSelection.toLowerCase() === 'scissors' && computerSelection === 1) {
-    let winLose = 'Win';
     return 'You ' + winLose + '! Scissors Beats Paper';
   } else {
     let winLose = 'draw';
