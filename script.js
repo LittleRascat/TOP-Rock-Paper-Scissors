@@ -1,58 +1,50 @@
 //Computer Selects Rock, Paper, or Scissors at random.
 function computerPlay() {
-  const computerArray = ['Rock', 'Paper', 'Scissors'];
-  const randomSelection = Math.floor(Math.random() * computerArray.length);
-  document.body.innerHTML = computerArray[randomSelection];
-  return randomSelection;
+  return computerChoice = computerArray[Math.floor(Math.random() * computerArray.length)];
 }
+
+let computerArray = ['rock', 'paper', 'scissors'];
 
 //Play round. Output win or lose statement.
 function playRound(playerSelection, computerSelection) {
-  if (playerSelection.toLowerCase() === 'paper' && computerSelection === 0) {
-    let winLose = 'Win';
-    return 'You ' + winLose + '! Paper Beats Rock';
-  } else if (playerSelection.toLowerCase() === 'scissors' && computerSelection === 0) {
-    let winLose = 'Lose';
-    return 'You ' + winLose + '! Rock Beats Scissors';
-  } else if (playerSelection.toLowerCase() === 'scissors' && computerSelection === 1) {
-    let winLose = 'Win';
-    return 'You ' + winLose + '! Scissors Beats Paper';
-  } else if (playerSelection.toLowerCase() === 'rock' && computerSelection === 1) {
-    let winLose = 'Lose';
-    return 'You ' + winLose + '! Paper Beats Rock';
-  } else if (playerSelection.toLowerCase() === 'rock' && computerSelection === 2) {
-    let winLose = 'Win';
-    return 'You ' + winLose + '! Rock Beats Scissors';
-  } else if (playerSelection.toLowerCase() === 'paper' && computerSelection === 2) {
-    let winLose = 'Lose';
-    return 'You ' + winLose + '! Scissors Beats Paper';
+  if (playerSelection == 'rock' && computerSelection == 'scissors') {
+    return 'You Win! Rock Beats Scissors';
+  } else if (playerSelection == 'rock' && computerSelection == 'paper') {
+    return 'You Lose! Paper Beats Rock';
+  } else if (playerSelection == 'paper' && computerSelection == 'rock') {
+    return 'You Win! Paper Beats Rock';
+  } else if (playerSelection == 'paper' && computerSelection == 'scissors') {
+    return 'You Lose! Scissors Beats Paper';
+  } else if (playerSelection == 'scissors' && computerSelection == 'paper') {
+    return 'You Win! Scissors Beats Paper';
+  } else if (playerSelection == 'scissors' && computerSelection == 'rock') {
+    return 'You Lose! Rock Beats Scissors';
   } else {
-    let winLose = 'draw';
-    return 'It\'s a ' + winLose + '!';
+    return 'It\'s a Draw!'
   }
 }
 
-const playerSelection = "rock";
+const playerSelection = 'rock';
 const computerSelection = computerPlay();
 console.log(playRound(playerSelection, computerSelection));
-console.log(computerPlay())
 
 //Play round five times.
 function game() {
   let winCount = 0;
-  let winLose = '';
+  
   for (i = 0; i < 5; i++) {
-    const playerSelection = prompt("Choose Rock, Paper, or Scissors:");
+    const playerSelection = prompt("Choose Rock, Paper, or Scissors:").toLowerCase();
     const computerSelection = computerPlay();
+    const roundResult = playRound(playerSelection, computerSelection);
+    playRound(playerSelection, computerSelection);
     console.log(playRound(playerSelection, computerSelection));
-    console.log(computerPlay())
-    if (winLose === 'Win') {
+    if (roundResult == 'You Win! Rock Beats Scissors' || roundResult == 'You Win! Paper Beats Rock' || roundResult == 'You Win! Scissors Beats Paper') {
       winCount += 1;
     }
   }
   if (winCount >= 3) {
     return 'Congradulations, you won the game!';
   } else {
-    return 'Bad luck, you lost tne game!';
+    return 'Bad luck, you lost the game!';
   }
 }
