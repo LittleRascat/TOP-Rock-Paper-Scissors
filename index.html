@@ -10,13 +10,14 @@
 
   <body>
     <header>Rock Paper Scissors</header>
-    <div class="selection-heading">Make a selection, first to 5 wins!<</div>
+    <div class="selection-heading">Make a selection, first to 5 wins!</div>
     <div class="selection">
-      <button class="btn" id="rock">Rock</button>
-      <button class="btn" id="paper">Paper</button>
-      <button class="btn" id="scissors">Scissors</button>
+      <button class="btn" id="rock" value="rock">Rock</button>
+      <button class="btn" id="paper" value="paper">Paper</button>
+      <button class="btn" id="scissors" value="scissors">Scissors</button>
     </div>
     <div class="results-section">
+      <div class="results-heading">Current Score</div>
       <div class="scores-container">
         <div class="score-box">
           <div class="player-score-heading">Player Score:</div>
@@ -27,10 +28,10 @@
           <div class="computer-score-number"></div>
         </div>
       </div>
-      
+        <div class="round-result"></div>
     </div>
 
   </body>
-
+  <script src="script.js"></script>
 
 </html>

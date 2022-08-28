@@ -4,47 +4,100 @@ function computerPlay() {
 }
 
 let computerArray = ['rock', 'paper', 'scissors'];
+let playerSelection = 'rock';
+let computerSelection = computerPlay();
+let playerScore = 0;
+let computerScore = 0;
+let result
 
 //Play round. Output win or lose statement.
 function playRound(playerSelection, computerSelection) {
   if (playerSelection == 'rock' && computerSelection == 'scissors') {
-    return 'You Win! Rock Beats Scissors';
+    result = 'You Win! Rock Beats Scissors';
+    playerScore += 1;
+    computerScore += 0;
+    return result;
   } else if (playerSelection == 'rock' && computerSelection == 'paper') {
-    return 'You Lose! Paper Beats Rock';
+    result = 'You Lose! Paper Beats Rock';
+    playerScore += 0;
+    computerScore += 1;
   } else if (playerSelection == 'paper' && computerSelection == 'rock') {
-    return 'You Win! Paper Beats Rock';
+    result = 'You Win! Paper Beats Rock';
+    playerScore += 1;
+    computerScore += 0;
   } else if (playerSelection == 'paper' && computerSelection == 'scissors') {
-    return 'You Lose! Scissors Beats Paper';
+    result = 'You Lose! Scissors Beats Paper';
+    playerScore += 0;
+    computerScore += 1;
   } else if (playerSelection == 'scissors' && computerSelection == 'paper') {
-    return 'You Win! Scissors Beats Paper';
+    result = 'You Win! Scissors Beats Paper';
+    playerScore += 1;
+    computerScore += 0;
   } else if (playerSelection == 'scissors' && computerSelection == 'rock') {
-    return 'You Lose! Rock Beats Scissors';
+    result = 'You Lose! Rock Beats Scissors';
+    playerScore += 0;
+    computerScore += 1;
   } else {
-    return 'It\'s a Draw!'
+    result = 'It\'s a Draw!'
   }
 }
 
-const playerSelection = 'rock';
-const computerSelection = computerPlay();
-console.log(playRound(playerSelection, computerSelection));
+function gameOver() {
+  if (playerScore === 5) {
+    result = 'Game Over! You Win!';
+  } else if (computerScore === 5) {
+    result = 'Game Over! You Lose!';
+  }
+}
 
-//Play round five times.
-function game() {
-  let winCount = 0;
-  
-  for (i = 0; i < 5; i++) {
-    const playerSelection = prompt("Choose Rock, Paper, or Scissors:").toLowerCase();
-    const computerSelection = computerPlay();
-    const roundResult = playRound(playerSelection, computerSelection);
-    playRound(playerSelection, computerSelection);
-    console.log(playRound(playerSelection, computerSelection));
-    if (roundResult == 'You Win! Rock Beats Scissors' || roundResult == 'You Win! Paper Beats Rock' || roundResult == 'You Win! Scissors Beats Paper') {
-      winCount += 1;
-    }
+function gameReset() {
+  if (playerScore === 5 || computerScore === 5) {
+    playerScore = 0;
+    computerScore = 0;
   }
-  if (winCount >= 3) {
-    return 'Congradulations, you won the game!';
-  } else {
-    return 'Bad luck, you lost the game!';
-  }
+}
+
+const rock = document.querySelector('#rock');
+rock.onclick = () => {
+  playerSelection = 'rock';
+  computerSelection = computerPlay();
+  gameReset();
+  playRound(playerSelection, computerSelection);
+  gameOver();
+  let resultContent = document.querySelector('.round-result');
+  resultContent.textContent = result;
+  let playerContent = document.querySelector('.player-score-number');
+  playerContent.textContent = playerScore;
+  let computerContent = document.querySelector('.computer-score-number');
+  computerContent.textContent = computerScore;
+}
+
+const paper = document.querySelector('#paper');
+paper.onclick = () => {
+  playerSelection = 'paper';
+  computerSelection = computerPlay();
+  gameReset();
+  playRound(playerSelection, computerSelection);
+  gameOver();
+  let resultContent = document.querySelector('.round-result');
+  resultContent.textContent = result;
+  let playerContent = document.querySelector('.player-score-number');
+  playerContent.textContent = playerScore;
+  let computerContent = document.querySelector('.computer-score-number');
+  computerContent.textContent = computerScore;
+}
+
+const scissors = document.querySelector('#scissors');
+scissors.onclick = () => {
+  playerSelection = 'scissors';
+  computerSelection = computerPlay();
+  gameReset();
+  playRound(playerSelection, computerSelection);
+  gameOver();
+  let resultContent = document.querySelector('.round-result');
+  resultContent.textContent = result;
+  let playerContent = document.querySelector('.player-score-number');
+  playerContent.textContent = playerScore;
+  let computerContent = document.querySelector('.computer-score-number');
+  computerContent.textContent = computerScore;
 }
