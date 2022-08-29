@@ -1,0 +1,79 @@
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    height: 192px;
+    background-color: rgb(127, 106, 139);
+}
+
+body {
+    background-color: rgba(233, 129, 10, 0.589);
+}
+
+.title {
+    font-size: 72px;
+    font-weight: 1000;
+    color: rgb(250, 227, 99);
+}
+
+.sub-title {
+    font-size: 48px;
+    font-weight: 600;
+    color: rgb(250, 227, 99);
+}
+
+.game {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.selection {
+    display: flex;
+    gap: 50px;
+}
+
+button {
+    width: 250px;
+    height: 250px;
+    font-size: 42px;
+    font-weight: 1000;
+    background-color: rgb(127, 106, 139);
+    border: 10px solid black;
+    border-radius: 125px;
+}
+
+button:hover {
+    background-color: rgba(33, 7, 95, 0.808);
+    color: white;
+  }
+
+.results-heading {
+    font-size: 48px;
+    font-weight: 1000;
+    text-align: center;
+    padding: 40px;
+}
+
+.scores-container {
+    display: flex;
+    justify-content: center;
+    gap: 70px;
+    padding-bottom: 40px;
+}
+
+.score-box {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 600
+}
+
+.round-result {
+    text-align: center;
+    font-size: 48px;
+    font-weight: 1000;
+}

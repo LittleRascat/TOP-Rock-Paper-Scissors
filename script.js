@@ -9,6 +9,7 @@ let computerSelection = computerPlay();
 let playerScore = 0;
 let computerScore = 0;
 let result
+let color = document.querySelector('.round-result');
 
 //Play round. Output win or lose statement.
 function playRound(playerSelection, computerSelection) {
@@ -16,29 +17,35 @@ function playRound(playerSelection, computerSelection) {
     result = 'You Win! Rock Beats Scissors';
     playerScore += 1;
     computerScore += 0;
-    return result;
+    color.style.color = 'darkgreen';
   } else if (playerSelection == 'rock' && computerSelection == 'paper') {
     result = 'You Lose! Paper Beats Rock';
     playerScore += 0;
     computerScore += 1;
+    color.style.color = 'darkred';
   } else if (playerSelection == 'paper' && computerSelection == 'rock') {
     result = 'You Win! Paper Beats Rock';
     playerScore += 1;
     computerScore += 0;
+    color.style.color = 'darkgreen';
   } else if (playerSelection == 'paper' && computerSelection == 'scissors') {
     result = 'You Lose! Scissors Beats Paper';
     playerScore += 0;
     computerScore += 1;
+    color.style.color = 'darkred';
   } else if (playerSelection == 'scissors' && computerSelection == 'paper') {
     result = 'You Win! Scissors Beats Paper';
     playerScore += 1;
     computerScore += 0;
+    color.style.color = 'darkgreen';
   } else if (playerSelection == 'scissors' && computerSelection == 'rock') {
     result = 'You Lose! Rock Beats Scissors';
     playerScore += 0;
     computerScore += 1;
+    color.style.color = 'darkred';
   } else {
-    result = 'It\'s a Draw!'
+    result = 'It\'s a Draw!';
+    color.style.color = 'black';
   }
 }
 
